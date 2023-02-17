@@ -10,7 +10,7 @@ namespace WebApplicationGQL.Models
         public string Name { get; set; }
 
         [Neo4JRelationship("CONTAIN", RelationshipDirection.Outgoing)]
-        [IsProjected(true)]
+
         public List<Room> Rooms { get; set; } 
 
     }
