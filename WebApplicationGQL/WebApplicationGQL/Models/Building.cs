@@ -14,7 +14,8 @@ namespace WebApplicationGQL.Models
 
         public string Name { get; set; } = "";
 
-
+        [Neo4JRelationship("HAS", RelationshipDirection.Outgoing)]
+        [IsProjected(true)]
         public List<Floor> Floors { get; set; }    = new List<Floor>();
 
     }

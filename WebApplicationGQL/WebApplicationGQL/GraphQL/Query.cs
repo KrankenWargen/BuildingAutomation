@@ -15,6 +15,7 @@ namespace WebApplicationGQL.GraphQL
     {
         [GraphQLName("building")]
         [UseNeo4JDatabase("neo4j")]
+        [UseProjection]
        
         public async Task<List<Building>> GetBuildings(
           [ScopedService] IAsyncSession session) {
