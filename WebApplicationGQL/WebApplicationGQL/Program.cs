@@ -1,19 +1,18 @@
 using Microsoft.EntityFrameworkCore;
-using WebApplicationGQL.Data;
 using WebApplicationGQL.GraphQL;
 using GraphQL.Server.Ui.Voyager;
-using WebApplicationGQL.Types;
 using Neo4j.Driver;
+using HotChocolate.Data.Neo4J;
 
 var builder = WebApplication.CreateBuilder(args);
 IDriver driver = GraphDatabase.Driver(
-              "bolt://localhost:7687",
-              AuthTokens.Basic("neo4j", "goldbecklight"));
+              "neo4j+s://2725a56b.databases.neo4j.io",
+              AuthTokens.Basic("neo4j", "rbAihX34NduwZaWL64EkKKwR_cYsf3UY5cMwJhqjidk"));
 
 builder.Services.AddSingleton(driver)
     .AddGraphQLServer()
-    .AddQueryType(q => q.Name("Query"))
-    .AddType<WebApplicationGQL.GraphQL.Query>()
+     .AddQueryType(q => q.Name("Query"))
+                        .AddType<WebApplicationGQL.GraphQL.Query>()
     .AddProjections();
 var app = builder.Build();
 

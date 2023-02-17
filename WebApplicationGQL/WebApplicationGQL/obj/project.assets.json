@@ -2,6 +2,22 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "AutoMapper/12.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Azure.Core/1.24.0": {
         "type": "package",
         "dependencies": {
@@ -1780,6 +1796,21 @@
     }
   },
   "libraries": {
+    "AutoMapper/12.0.1": {
+      "sha512": "hvV62vl6Hp/WfQ24yzo3Co9+OPl8wH8hApwVtgWpiAynVJkUcs7xvehnSftawL8Pe8FrPffBRM3hwzLQqWDNjA==",
+      "type": "package",
+      "path": "automapper/12.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.12.0.1.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.dll",
+        "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
     "Azure.Core/1.24.0": {
       "sha512": "+/qI1j2oU1S4/nvxb2k/wDsol00iGf1AyJX5g3epV7eOpQEP/2xcgh/cxgKMeFgn3U2fmgSiBnQZdkV+l5y0Uw==",
       "type": "package",
@@ -4934,6 +4965,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "AutoMapper >= 12.0.1",
       "GraphQL.Server.Ui.Voyager >= 7.2.0",
       "HotChocolate.AspNetCore >= 13.0.2",
       "HotChocolate.Data.EntityFramework >= 13.0.2",
@@ -4949,11 +4981,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\melgohar\\Source\\Repos\\goldbeck_light\\WebApplicationGQL\\WebApplicationGQL\\GoldBeckLight.csproj",
+      "projectUniqueName": "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\WebApplicationGQL\\GoldBeckLight.csproj",
       "projectName": "GoldBeckLight",
-      "projectPath": "C:\\Users\\melgohar\\Source\\Repos\\goldbeck_light\\WebApplicationGQL\\WebApplicationGQL\\GoldBeckLight.csproj",
+      "projectPath": "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\WebApplicationGQL\\GoldBeckLight.csproj",
       "packagesPath": "C:\\Users\\melgohar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\melgohar\\Source\\Repos\\goldbeck_light\\WebApplicationGQL\\WebApplicationGQL\\obj\\",
+      "outputPath": "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\WebApplicationGQL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\melgohar\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4982,6 +5014,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "AutoMapper": {
+            "target": "Package",
+            "version": "[12.0.1, )"
+          },
           "GraphQL.Server.Ui.Voyager": {
             "target": "Package",
             "version": "[7.2.0, )"

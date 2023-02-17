@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\melgohar\\Source\\Repos\\goldbeck_light\\WebApplicationGQL\\WebApplicationGQL\\GoldBeckLight.csproj": {}
+    "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\WebApplicationGQL\\GoldBeckLight.csproj": {}
   },
   "projects": {
-    "C:\\Users\\melgohar\\Source\\Repos\\goldbeck_light\\WebApplicationGQL\\WebApplicationGQL\\GoldBeckLight.csproj": {
+    "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\WebApplicationGQL\\GoldBeckLight.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\melgohar\\Source\\Repos\\goldbeck_light\\WebApplicationGQL\\WebApplicationGQL\\GoldBeckLight.csproj",
+        "projectUniqueName": "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\WebApplicationGQL\\GoldBeckLight.csproj",
         "projectName": "GoldBeckLight",
-        "projectPath": "C:\\Users\\melgohar\\Source\\Repos\\goldbeck_light\\WebApplicationGQL\\WebApplicationGQL\\GoldBeckLight.csproj",
+        "projectPath": "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\WebApplicationGQL\\GoldBeckLight.csproj",
         "packagesPath": "C:\\Users\\melgohar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\melgohar\\Source\\Repos\\goldbeck_light\\WebApplicationGQL\\WebApplicationGQL\\obj\\",
+        "outputPath": "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\WebApplicationGQL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\melgohar\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "GraphQL.Server.Ui.Voyager": {
               "target": "Package",
               "version": "[7.2.0, )"

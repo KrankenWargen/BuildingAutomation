@@ -224,3 +224,4 @@ C:\Users\melgohar\Source\Repos\goldbeck_light\WebApplicationGQL\WebApplicationGQ
 C:\Users\melgohar\Source\Repos\goldbeck_light\WebApplicationGQL\WebApplicationGQL\obj\Debug\net6.0\GoldBeckLight.pdb
 C:\Users\melgohar\Source\Repos\goldbeck_light\WebApplicationGQL\WebApplicationGQL\obj\Debug\net6.0\GoldBeckLight.genruntimeconfig.cache
 C:\Users\melgohar\Source\Repos\goldbeck_light\WebApplicationGQL\WebApplicationGQL\obj\Debug\net6.0\ref\GoldBeckLight.dll
+C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\WebApplicationGQL\bin\Debug\net6.0\AutoMapper.dll

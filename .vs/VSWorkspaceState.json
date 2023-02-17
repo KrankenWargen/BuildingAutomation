@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\WebApplicationGQL",
-    "\\WebApplicationGQL\\Properties"
+    "\\WebApplicationGQL\\WebApplicationGQL",
+    "\\WebApplicationGQL\\WebApplicationGQL\\Models",
+    "\\WebApplicationGQL\\WebApplicationGQL\\Properties"
   ],
-  "SelectedNode": "\\WebApplicationGQL\\Properties\\launchSettings.json",
   "PreviewInSolutionExplorer": false
 }
