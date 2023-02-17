@@ -54,9 +54,41 @@ RETURN n{.*, floors: floors} as buildingType";
         [GraphQLName("floor")]
         [UseNeo4JDatabase("neo4j")]
         [UseProjection]
-        public Neo4JExecutable<Floor> GetFloors(
-           [ScopedService]  IAsyncSession session) =>
-           new (session);
+        public async Task<List<Floor>> GetFloors(
+           [ScopedService]  IAsyncSession session)
+        {
+            List<Floor> allFloorss = new List<Floor>();
+
+            await session.ExecuteReadAsync(async tx =>
+            {
+                var query = @"MATCH(f:Floor)-[:CONTAIN]->(r:Room)
+WITH f, collect(r.name) as rooms
+RETURN f{.*, rooms: rooms} as floorType";
+                var cursor = await tx.RunAsync(query);
+                var records = await cursor.ToListAsync();
+
+                records.ForEach(record =>
+                {
+                    Dictionary<string, object> floorType = record["floorType"].ToObjectDictionary();
+                    List<Room> rooms = new List<Room>();
+                    floorType["rooms"].ConvertTo<List<string>>().ForEach(roomName =>
+                    {
+                        rooms.Add(new Room { Name = roomName });
+                    });
+                    var floor = new Floor
+                    {
+                        Name = floorType["name"].ToString(),
+                        Rooms = rooms
+
+                    };
+                    allFloorss.Add(floor);
+                });
+
+
+            });
+            return allFloorss;
+        }
+          
 
     }
 }

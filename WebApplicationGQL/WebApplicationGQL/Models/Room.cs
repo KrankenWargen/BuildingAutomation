@@ -4,12 +4,11 @@ using System.ComponentModel.DataAnnotations;
 namespace WebApplicationGQL.Models
 
 { 
-    public class Floor { 
-  
+    public class Room
+    { 
 
         public string Name { get; set; }
 
-        public List<Room> Rooms { get; set; } 
 
     }
 }
