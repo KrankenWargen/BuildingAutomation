@@ -8,14 +8,12 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 namespace WebApplicationGQL.Models
 {
 
-
     public class Building
     {
+        public Building() { } 
 
         public string Name { get; set; } = "";
 
-        [Neo4JRelationship("HAS", RelationshipDirection.Outgoing)]
-        [IsProjected(true)]
         public List<Floor> Floors { get; set; }    = new List<Floor>();
 
     }
