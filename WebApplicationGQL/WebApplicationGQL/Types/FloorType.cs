@@ -10,8 +10,8 @@ namespace GoldBeckLight.Types
         {
             descriptor.Field(_ => _.Name);
             descriptor.Field(_ => _.Rooms)
-                .ResolveWith<RoomResolver>(_ => _.GetRoomsAsync(default,default)); 
-            descriptor.Field(_ => _.NumberOfRooms).ResolveWith<RoomResolver>(_ => _.GetNumberOfRooms(default,default));
+                .ResolveWith<RoomResolver>(_ => _.GetRoomsAsync(default,default,default));
+            descriptor.Field(_ => _.NumberOfRooms).ResolveWith<RoomResolver>(_ => _.GetNumberOfRooms(default, default,default));
 
         }
     }

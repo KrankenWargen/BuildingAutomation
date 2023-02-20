@@ -8,23 +8,20 @@ namespace GoldBeckLight.Resolvers
     public class RoomResolver
     {
 
-        private readonly RoomsByFloorDataLoader _roomsByFloorDataLoader;
-
-        public RoomResolver(RoomsByFloorDataLoader roomsByFloorDataLoader) { 
-                this._roomsByFloorDataLoader = roomsByFloorDataLoader;
-        }
-        public async Task<List<Room>> GetRoomsAsync([Parent] Floor floor, CancellationToken cancellationToken)
+  
+        public async Task<List<Room>> GetRoomsAsync([Parent] Floor floor, RoomsByFloorDataLoader roomsByFloorDataLoader, CancellationToken cancellationToken)
         {
-            // Load the rooms for the given floor using the data loader.
-            var roomsByFloor = await _roomsByFloorDataLoader.LoadAsync(floor.Name, cancellationToken);
+           
+            var roomsByFloor = await roomsByFloorDataLoader.LoadAsync(floor.Name, cancellationToken);
             return roomsByFloor ?? new List<Room>();
+            /*       return _roomRepository.GetByName(floor.Name); */
         }
 
 
-        public async Task<int> GetNumberOfRooms([Parent] Floor floor, CancellationToken cancellationToken)
+        public async Task<int> GetNumberOfRooms([Parent] Floor floor, RoomsByFloorDataLoader roomsByFloorDataLoader,CancellationToken cancellationToken)
         {
-            // Load the rooms for the given floor using the data loader.
-            var roomsByFloor = await _roomsByFloorDataLoader.LoadAsync(floor.Name, cancellationToken);
+          
+            var roomsByFloor = await roomsByFloorDataLoader.LoadAsync(floor.Name);
             var numberOfRooms = roomsByFloor?.Count ?? 0;
             return numberOfRooms;
         }

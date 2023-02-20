@@ -9,7 +9,7 @@ namespace GoldBeckLight.Types
         protected override void Configure(IObjectTypeDescriptor<Building> descriptor)
         {
             descriptor.Field(_ => _.Name);
-            descriptor.Field(_ => _.Floors).ResolveWith<FloorResolver>(_ => _.GetFloorsAsync(default, default));
+            descriptor.Field(_ => _.Floors).ResolveWith<FloorResolver>(_ => _.GetFloorsAsync(default, default,default));
 
         }
     }

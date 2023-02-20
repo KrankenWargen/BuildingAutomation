@@ -1,4 +1,5 @@
 ﻿using GoldBeckLight.Repositories;
+using System.Diagnostics;
 using WebApplicationGQL.Models;
 
 public class FloorsByBuildingDataLoader : BatchDataLoader<string, List<Floor>>
@@ -19,7 +20,6 @@ public class FloorsByBuildingDataLoader : BatchDataLoader<string, List<Floor>>
     {
         var floorsByBuilding = new Dictionary<string, List<Floor>>();
 
-        // Load the rooms for each floor.
         foreach (var buildingName in keys)
         {
             var rooms = await _repository.GetByName(buildingName);

@@ -19,7 +19,6 @@ public class RoomsByFloorDataLoader : BatchDataLoader<string, List<Room>>
     {
         var roomsByFloor = new Dictionary<string, List<Room>>();
 
-        // Load the rooms for each floor.
         foreach (var floorName in keys)
         {
             var rooms = await _repository.GetByName(floorName);
