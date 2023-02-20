@@ -5,6 +5,7 @@ namespace GoldBeckLight.Repositories
 {
     public interface IFloorRepository
     {
-        Task<List<Floor>> GetByName(string name);
+        Task<List<Floor>> GetFloors();
+        Task<List<Floor>> GetFloorByBuildingName(string name);
     }
 }

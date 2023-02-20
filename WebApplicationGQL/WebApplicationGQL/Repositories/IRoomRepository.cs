@@ -5,6 +5,7 @@ namespace GoldBeckLight.Repositories
 {
     public interface IRoomRepository
     {
-        Task<List<Room>> GetByName(string name);
+        Task<List<Room>> GetRooms();
+        Task<List<Room>> GetRoomsByFloorName(string name);
     }
 }

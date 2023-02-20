@@ -21,7 +21,7 @@ namespace GoldBeckLight.Resolvers
         public async Task<int> GetNumberOfRooms([Parent] Floor floor, RoomsByFloorDataLoader roomsByFloorDataLoader,CancellationToken cancellationToken)
         {
           
-            var roomsByFloor = await roomsByFloorDataLoader.LoadAsync(floor.Name);
+            var roomsByFloor = await roomsByFloorDataLoader.LoadAsync(floor.Name,cancellationToken);
             var numberOfRooms = roomsByFloor?.Count ?? 0;
             return numberOfRooms;
         }

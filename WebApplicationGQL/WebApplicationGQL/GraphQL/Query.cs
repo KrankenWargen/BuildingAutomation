@@ -14,29 +14,40 @@ namespace WebApplicationGQL.GraphQL
     [ExtendObjectType(Name = "Query")]
     public class Query
     {
+        private readonly IBuildingRepository _buildingRepository;
+        private readonly IFloorRepository _floorRepository;
+        private readonly IRoomRepository _roomRepository;
+        public Query(IBuildingRepository buildingRepository, IFloorRepository floorRepository, IRoomRepository roomRepository) {
+
+            _buildingRepository = buildingRepository;
+            _floorRepository = floorRepository;
+            _roomRepository = roomRepository;
+        }  
        
    
 
         [GraphQLName("building")]
         [UseFiltering]
-        public Neo4JExecutable<Building> GetBuildings([Service] IDriver driver)
+        public async Task<List<Building>> GetBuildings()
         {
-            var executable = new Neo4JExecutable<Building>(driver.AsyncSession(o => o.WithDatabase("neo4j")));
-
-            return executable;
+            return await _buildingRepository.GetBuildings();
         }
 
 
 
         [GraphQLName("floor")]
-        public Neo4JExecutable<Floor> GetFloors(
-           [Service] IDriver driver)
+        [UseFiltering]
+        public async Task<List<Floor>> GetFloors()
         {
-            var executable = new Neo4JExecutable<Floor>(driver.AsyncSession(o => o.WithDatabase("neo4j")));
-
-            return executable;
+            return await _floorRepository.GetFloors();
         }
-          
 
+
+        [GraphQLName("room")]
+        [UseFiltering]
+        public async Task<List<Room>> GetRooms()
+        {
+            return await _roomRepository.GetRooms();
+        }
     }
 }

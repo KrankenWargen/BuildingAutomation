@@ -21,7 +21,7 @@ public class RoomsByFloorDataLoader : BatchDataLoader<string, List<Room>>
 
         foreach (var floorName in keys)
         {
-            var rooms = await _repository.GetByName(floorName);
+            var rooms = await _repository.GetRoomsByFloorName(floorName);
             roomsByFloor[floorName] = rooms;
         }
 

@@ -13,7 +13,34 @@ namespace GoldBeckLight.Repositories
 
             this.driver = driver;
         }
-        public async Task<List<Room>> GetByName(string name)
+
+        public async Task<List<Room>> GetRooms()
+        {
+
+            IAsyncSession session = driver.AsyncSession();
+            List<Room> rooms = new List<Room>();
+            await session.ExecuteReadAsync(async tx =>
+            {
+                var query = @"MATCH(n:Room)
+RETURN collect(n.name) as rooms";
+                var cursor = await tx.RunAsync(query);
+                var records = await cursor.ToListAsync();
+
+                records.ForEach(record =>
+                {
+
+                    record["rooms"].ConvertTo<List<string>>().ForEach(roomName =>
+                    {
+                        rooms.Add(new Room { Name = roomName });
+                    });
+                });
+
+
+            });
+            return rooms;
+        }
+
+        public async Task<List<Room>> GetRoomsByFloorName(string name)
         {
             IAsyncSession session = driver.AsyncSession();
             List<Room> rooms = new List<Room>();

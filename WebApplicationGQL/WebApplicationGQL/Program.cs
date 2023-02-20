@@ -7,12 +7,13 @@ using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 IDriver driver = GraphDatabase.Driver(
-              "enterServerUrl",
-              AuthTokens.Basic("enterName", "enterPassword"));
+              "neo4j+s://2725a56b.databases.neo4j.io",
+              AuthTokens.Basic("neo4j", "rbAihX34NduwZaWL64EkKKwR_cYsf3UY5cMwJhqjidk"));
 
 builder.Services.AddSingleton<IDriver>(driver)
     .AddScoped<IFloorRepository, FloorRepository>()
      .AddScoped<IRoomRepository, RoomRepository>()
+     .AddScoped<IBuildingRepository, BuildingRepository>()
      .AddGraphQLServer()
       .AddDataLoader<RoomsByFloorDataLoader>()
       .AddDataLoader<FloorsByBuildingDataLoader>()
