@@ -21,10 +21,10 @@ builder.Services.AddSingleton<IDriver>(driver)
     .AddType<FloorResolver>()
    .AddType<FloorType>()
     .AddType<RoomResolver>()
-   
       .AddQueryType(q => q.Name("Query"))
                         .AddType<WebApplicationGQL.GraphQL.Query>()
-                        .AddFiltering();
+                        .AddFiltering()
+                        .AddProjections();
 var app = builder.Build();
 
 
