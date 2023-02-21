@@ -1,4 +1,5 @@
 ﻿using GoldBeckLight.Repositories;
+using GoldBeckLight.Types;
 using HotChocolate.Data.Neo4J;
 using HotChocolate.Data.Neo4J.Execution;
 using HotChocolate.Data.Neo4J.Language;
@@ -27,8 +28,11 @@ namespace WebApplicationGQL.GraphQL
    
 
         [GraphQLName("building")]
+        [UsePaging(typeof(BuildingType))]
+        [UseProjection]
         [UseFiltering]
-        public async Task<List<Building>> GetBuildings()
+       
+        public async Task<IEnumerable<Building>> GetBuildings()
         {
             return await _buildingRepository.GetBuildings();
         }
@@ -36,16 +40,18 @@ namespace WebApplicationGQL.GraphQL
 
 
         [GraphQLName("floor")]
+        [UseProjection]
         [UseFiltering]
-        public async Task<List<Floor>> GetFloors()
+        public async Task<IEnumerable<Floor>> GetFloors()
         {
             return await _floorRepository.GetFloors();
         }
 
 
         [GraphQLName("room")]
+        [UseProjection]
         [UseFiltering]
-        public async Task<List<Room>> GetRooms()
+        public async Task<IEnumerable<Room>> GetRooms()
         {
             return await _roomRepository.GetRooms();
         }
