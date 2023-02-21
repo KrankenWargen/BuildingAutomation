@@ -29,7 +29,7 @@ namespace WebApplicationGQL.GraphQL
    
 
         [GraphQLName("building")]
-        [UsePaging(typeof(BuildingType))]
+    /*    [UsePaging(typeof(BuildingType))]*/
         [UseProjection]
         [UseFiltering]
        

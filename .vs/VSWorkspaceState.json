@@ -2,9 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\WebApplicationGQL",
-    "\\WebApplicationGQL\\WebApplicationGQL",
-    "\\WebApplicationGQL\\WebApplicationGQL\\Models",
-    "\\WebApplicationGQL\\WebApplicationGQL\\Properties"
+    "\\WebApplicationGQL\\WebApplicationGQL"
   ],
   "SelectedNode": "\\WebApplicationGQL\\WebApplicationGQL\\GoldBeckLight.csproj",
   "PreviewInSolutionExplorer": false
