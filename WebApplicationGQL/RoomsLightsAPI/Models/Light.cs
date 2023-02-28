@@ -4,12 +4,12 @@ using System.ComponentModel.DataAnnotations;
 namespace WebApplicationGQL.Models
 
 { 
-    public class Room
+    public class Light
     { 
 
         public string Name { get; set; }
+        public bool IsOn { get; set; }
 
-     
 
     }
 }

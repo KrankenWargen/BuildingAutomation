@@ -9,7 +9,9 @@ namespace WebApplicationGQL.Models
 
         public string Name { get; set; }
 
-     
+      
+
+        public List<Light> Lights { get; set; } = new List<Light>();
 
     }
 }
