@@ -1,4 +1,14 @@
 ﻿extend type Query {
   building: [Building!]! @delegate(path: "buildings()")
+  floor: [Floor!]! @delegate(path: "floors()")
+  room: [Room!]! @delegate(path: "rooms()")
 }
 
+
+extend type Building{
+floors: [Floor!]! @delegate(path: "floorByBuildingName(buildingName: $fields:name)")
+}
+
+extend type Floor{
+rooms: [Room!]! @delegate(path: "roomsByFloorName(floorName: $fields:name)")
+}

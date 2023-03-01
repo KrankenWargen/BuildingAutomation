@@ -11,9 +11,8 @@ namespace WebApplicationGQL.Models
         public string Name { get; set; }
 
 
-        public List<Room> Rooms { get; set; }
+        public List<Room> Rooms { get; set; } = new List<Room> { }; 
 
 
-        public int NumberOfRooms { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace GoldBeckLight.Types
     {
         protected override void Configure(IObjectTypeDescriptor<Room> descriptor)
         {
-            descriptor.Field(_ => _.Name);
+            descriptor.Field(_ => _.Name).IsProjected(true);
 
         }
     }

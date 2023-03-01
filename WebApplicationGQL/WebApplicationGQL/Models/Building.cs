@@ -10,10 +10,12 @@ namespace WebApplicationGQL.Models
 
     public class Building
     {
-        public Building() { } 
+        public Building() { }
 
+        
         public string Name { get; set; } = "";
 
+        
         public List<Floor> Floors { get; set; }    = new List<Floor>();
 
     }

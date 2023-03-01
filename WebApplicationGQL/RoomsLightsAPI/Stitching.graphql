@@ -1,3 +1,3 @@
-﻿extend type Query {
-  room: [Room!]! @delegate(path: "room()")
+﻿extend type Room {
+  lights: [Light!]! @delegate(path: "lights(roomName: $fields:name)")
 }

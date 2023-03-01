@@ -1,4 +1,5 @@
 ﻿using GoldBeckLight.Repositories;
+using GoldBeckLight.Types;
 using HotChocolate.Data.Neo4J;
 using HotChocolate.Data.Neo4J.Execution;
 using HotChocolate.Data.Neo4J.Language;
@@ -9,19 +10,23 @@ using System.Diagnostics;
 using WebApplicationGQL.Models;
 using static HotChocolate.ErrorCodes;
 
-namespace WebApplicationGQL.GraphQL
+namespace GoldBeckLight.GraphQL.Queries
 {
     [ExtendObjectType(Name = "Query")]
-    public class Query
+    public class QueryFloor
     {
- 
+
+
+
 
 
         [UseProjection]
         [UseFiltering]
-        public async Task<IEnumerable<Light>> GetLights(string roomName,[Service] ILightRepository lightRepository)
+        public async Task<IEnumerable<Floor>> GetFloorByBuildingName(string buildingName,[Service] IFloorRepository floorRepository)
         {
-            return await lightRepository.GetLightsByFloorName(roomName);
+            return await floorRepository.GetFloorByBuildingName(buildingName);
         }
+
+
     }
 }

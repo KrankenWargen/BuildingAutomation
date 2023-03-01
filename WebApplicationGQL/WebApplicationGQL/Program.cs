@@ -5,6 +5,7 @@ using GoldBeckLight.Repositories;
 using HotChocolate.Data.Neo4J;
 using System.Diagnostics;
 using WebApplicationGQL.Models;
+using GoldBeckLight.GraphQL.Queries;
 
 var builder = WebApplication.CreateBuilder(args);
 IDriver driver = GraphDatabase.Driver(
@@ -35,9 +36,14 @@ builder.Services.AddSingleton<IDriver>(driver)
     .AddType<RoomResolver>()
     .AddType<RoomType>()
       .AddQueryType(q => q.Name("Query"))
-                        .AddType<WebApplicationGQL.GraphQL.Query>()
+                        .AddType<GoldBeckLight.GraphQL.Queries.Query>()
+                        .AddType<QueryFloor>()
+                        .AddType<QueryRoom>()
                         .AddFiltering()
-                        .AddProjections();
+                        .AddProjections()
+                        .PublishSchemaDefinition(c => c
+                    .SetName("buildings")
+                      .IgnoreRootTypes().AddTypeExtensionsFromFile("./Stitching.graphql"));
 var app = builder.Build();
 app.UseCors("AllowAll");
 
