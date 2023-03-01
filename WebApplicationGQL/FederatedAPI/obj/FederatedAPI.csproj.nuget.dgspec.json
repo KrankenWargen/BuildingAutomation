@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\RoomsLightsAPI\\RoomsLightsAPI.csproj": {}
+    "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\FederatedAPI\\FederatedAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\RoomsLightsAPI\\RoomsLightsAPI.csproj": {
+    "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\FederatedAPI\\FederatedAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\RoomsLightsAPI\\RoomsLightsAPI.csproj",
-        "projectName": "RoomsLightsAPI",
-        "projectPath": "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\RoomsLightsAPI\\RoomsLightsAPI.csproj",
+        "projectUniqueName": "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\FederatedAPI\\FederatedAPI.csproj",
+        "projectName": "FederatedAPI",
+        "projectPath": "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\FederatedAPI\\FederatedAPI.csproj",
         "packagesPath": "C:\\Users\\melgohar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\RoomsLightsAPI\\obj\\",
+        "outputPath": "C:\\Users\\melgohar\\source\\repos\\goldbeck_light\\WebApplicationGQL\\FederatedAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\melgohar\\AppData\\Roaming\\NuGet\\NuGet.Config",

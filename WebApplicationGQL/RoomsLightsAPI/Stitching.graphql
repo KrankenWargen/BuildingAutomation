@@ -1,0 +1,3 @@
+﻿extend type Query {
+  room: [Room!]! @delegate(path: "room()")
+}

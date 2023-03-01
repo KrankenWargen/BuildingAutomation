@@ -31,7 +31,10 @@ builder.Services.AddSingleton<IDriver>(driver)
       .AddQueryType(q => q.Name("Query"))
                         .AddType<WebApplicationGQL.GraphQL.Query>()
                         .AddFiltering()
-                        .AddProjections();
+                        .AddProjections()
+                         .PublishSchemaDefinition(c => c
+                    .SetName("rooms")
+                      .IgnoreRootTypes()); ;
 var app = builder.Build();
 app.UseCors("AllowAll");
 

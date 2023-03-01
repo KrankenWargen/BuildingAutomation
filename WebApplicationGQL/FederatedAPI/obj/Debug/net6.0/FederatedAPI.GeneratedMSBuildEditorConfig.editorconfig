@@ -7,15 +7,11 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
-build_property.RootNamespace = GoldBeckLight
-build_property.RootNamespace = GoldBeckLight
-build_property.ProjectDir = C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\WebApplicationGQL\
+build_property.RootNamespace = FederatedAPI
+build_property.RootNamespace = FederatedAPI
+build_property.ProjectDir = C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\FederatedAPI\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\WebApplicationGQL
+build_property.MSBuildProjectDirectory = C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\FederatedAPI
 build_property._RazorSourceGeneratorDebug = 
-
-[C:/Users/melgohar/source/repos/goldbeck_light/WebApplicationGQL/WebApplicationGQL/Stitching.graphql]
-build_metadata.AdditionalFiles.TargetPath = 
-build_metadata.AdditionalFiles.CssScope = 

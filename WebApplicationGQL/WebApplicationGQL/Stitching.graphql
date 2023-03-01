@@ -1,0 +1,4 @@
+﻿extend type Query {
+  building: [Building!]! @delegate(path: "buildings()")
+}
+

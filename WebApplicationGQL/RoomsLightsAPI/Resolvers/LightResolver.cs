@@ -17,7 +17,7 @@ namespace GoldBeckLight.Resolvers
   
         public async Task<List<Light>> GetLightsAsync([Parent] Room room)
         {
-            Debug.WriteLine(room.Name);
+          
             return await _lightRepository.GetLightsByFloorName(room.Name);
         }
 

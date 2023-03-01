@@ -112,3 +112,5 @@ C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\RoomsLightsAPI\o
 C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\RoomsLightsAPI\obj\Debug\net6.0\RoomsLightsAPI.pdb
 C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\RoomsLightsAPI\obj\Debug\net6.0\RoomsLightsAPI.genruntimeconfig.cache
 C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\RoomsLightsAPI\obj\Debug\net6.0\ref\RoomsLightsAPI.dll
+C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\RoomsLightsAPI\bin\Debug\net6.0\HotChocolate.Stitching.dll
+C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\RoomsLightsAPI\bin\Debug\net6.0\HotChocolate.Stitching.Abstractions.dll
