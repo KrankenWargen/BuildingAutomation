@@ -13,14 +13,14 @@ namespace GoldBeckLight.Resolvers
     {
 
 
-        public async Task<List<Floor>> GetFloorsAsync(
+        public  Task<List<Floor>> GetFloorsAsync(
               [Parent] Building building, [Service] IFloorRepository floorRepository)
         {
            
 
             /*      var floorsByBuilding = await floorsByBuildingDataLoader.LoadAsync(building.Name,cancellationToken);
                   return floorsByBuilding ?? new List<Floor>();*/
-            return await floorRepository.GetFloorByBuildingName(building.Name);
+            return  floorRepository.GetFloorByBuildingName(building.Name);
         }
 
 

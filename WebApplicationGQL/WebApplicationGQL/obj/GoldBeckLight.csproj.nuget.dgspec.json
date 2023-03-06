@@ -56,13 +56,13 @@
               "target": "Package",
               "version": "[13.0.2, )"
             },
-            "HotChocolate.Data.Neo4J": {
+            "HotChocolate.Diagnostics": {
               "target": "Package",
               "version": "[13.0.2, )"
             },
             "HotChocolate.Stitching": {
               "target": "Package",
-              "version": "[13.0.5, )"
+              "version": "[13.0.2, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -77,6 +77,30 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.2, )"
+            },
+            "Neo4j.Driver": {
+              "target": "Package",
+              "version": "[5.6.0, )"
+            },
+            "OpenTelemetry.Exporter.Jaeger": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "OpenTelemetry.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[1.0.0-rc8, )"
+            },
+            "OpenTelemetry.Instrumentation.AspNetCore": {
+              "target": "Package",
+              "version": "[1.0.0-rc8, )"
+            },
+            "OpenTelemetry.Instrumentation.Http": {
+              "target": "Package",
+              "version": "[1.0.0-rc8, )"
+            },
+            "ServiceStack": {
+              "target": "Package",
+              "version": "[6.6.0, )"
             }
           },
           "imports": [

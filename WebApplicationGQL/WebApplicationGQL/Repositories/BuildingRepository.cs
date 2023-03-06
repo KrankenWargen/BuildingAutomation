@@ -16,7 +16,7 @@ namespace GoldBeckLight.Repositories
         public async Task<List<Building>> GetBuildings()
         {
 
-            IAsyncSession session = driver.AsyncSession();
+            using IAsyncSession session = driver.AsyncSession();
             List<Building> buildings = new List<Building>();
             await session.ExecuteReadAsync(async tx =>
             {
@@ -36,6 +36,7 @@ RETURN collect(n.name) as buildings";
 
 
             });
+         
             return buildings;   
         }
 

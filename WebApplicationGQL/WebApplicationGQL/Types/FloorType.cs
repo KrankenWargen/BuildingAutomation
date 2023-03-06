@@ -10,7 +10,7 @@ namespace GoldBeckLight.Types
         {
             descriptor.Field(_ => _.Name).IsProjected(true); 
             descriptor.Field(_ => _.Rooms)
-                .ResolveWith<RoomResolver>(_ => _.GetRoomsAsync(default,default));
+                .ResolveWith<RoomResolver>(_ => _.GetRoomsAsync(default,default,default));
 
         }
     }

@@ -11,14 +11,20 @@
     <PackageReference Include="GraphQL.Server.Ui.Voyager" Version="7.2.0" />
     <PackageReference Include="HotChocolate.AspNetCore" Version="13.0.2" />
     <PackageReference Include="HotChocolate.Data.EntityFramework" Version="13.0.2" />
-    <PackageReference Include="HotChocolate.Data.Neo4J" Version="13.0.2" />
-    <PackageReference Include="HotChocolate.Stitching" Version="13.0.5" />
+    <PackageReference Include="HotChocolate.Stitching" Version="13.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
+	  <PackageReference Include="HotChocolate.Diagnostics" Version="13.0.2" />
+	  <PackageReference Include="Neo4j.Driver" Version="5.6.0" />
+	  <PackageReference Include="OpenTelemetry.Exporter.Jaeger" Version="1.1.0" />
+	  <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.0.0-rc8" />
+	  <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.0.0-rc8" />
+	  <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.0.0-rc8" />
+	  <PackageReference Include="ServiceStack" Version="6.6.0" />
   </ItemGroup>
 	<ItemGroup>
 		<AdditionalFiles Include="**\*.graphql" />

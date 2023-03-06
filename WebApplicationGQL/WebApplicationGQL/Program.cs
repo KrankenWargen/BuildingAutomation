@@ -1,12 +1,13 @@
-using Neo4j.Driver;
 using GoldBeckLight.Resolvers;
 using GoldBeckLight.Types;
 using GoldBeckLight.Repositories;
-using HotChocolate.Data.Neo4J;
 using System.Diagnostics;
 using WebApplicationGQL.Models;
+using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
 using GoldBeckLight.GraphQL.Queries;
-
+using Neo4j.Driver;
+using ServiceStack;
 var builder = WebApplication.CreateBuilder(args);
 IDriver driver = GraphDatabase.Driver(
               "neo4j+s://2725a56b.databases.neo4j.io",
@@ -44,6 +45,27 @@ builder.Services.AddSingleton<IDriver>(driver)
                         .PublishSchemaDefinition(c => c
                     .SetName("buildings")
                       .IgnoreRootTypes().AddTypeExtensionsFromFile("./Stitching.graphql"));
+          /*              .AddInstrumentation();*/
+
+/*builder.Logging.AddOpenTelemetry(
+
+    b =>
+    {
+        b.IncludeFormattedMessage = true;
+        b.IncludeScopes = true;
+        b.ParseStateValues = true;
+        b.SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("Demo"));
+    });
+
+builder.Services.AddOpenTelemetryTracing(
+
+    b =>
+    {
+        b.AddHttpClientInstrumentation();
+        b.AddAspNetCoreInstrumentation();
+        b.AddHotChocolateInstrumentation();
+        b.AddJaegerExporter();
+    }); */
 var app = builder.Build();
 app.UseCors("AllowAll");
 

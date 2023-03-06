@@ -1,10 +1,5 @@
 ﻿using GoldBeckLight.Repositories;
 using GoldBeckLight.Types;
-using HotChocolate.Data.Neo4J;
-using HotChocolate.Data.Neo4J.Execution;
-using HotChocolate.Data.Neo4J.Language;
-using Neo4j.Driver;
-using ServiceStack;
 using System;
 using System.Diagnostics;
 using WebApplicationGQL.Models;
@@ -22,7 +17,7 @@ namespace GoldBeckLight.GraphQL.Queries
 
         [UseProjection]
         [UseFiltering]
-        public async Task<IEnumerable<Floor>> GetFloorByBuildingName(string buildingName,[Service] IFloorRepository floorRepository)
+        public async Task<IEnumerable<Floor>> GetFloorByBuildingName(string buildingName, [Service] IFloorRepository floorRepository)
         {
             return await floorRepository.GetFloorByBuildingName(buildingName);
         }

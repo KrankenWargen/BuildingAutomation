@@ -1,8 +1,7 @@
-﻿using Neo4j.Driver;
-using ServiceStack;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using WebApplicationGQL.Models;
-
+using ServiceStack;
+using Neo4j.Driver;
 namespace GoldBeckLight.Repositories
 {
     public class FloorRepository : IFloorRepository
@@ -17,7 +16,7 @@ namespace GoldBeckLight.Repositories
         public async Task<List<Floor>> GetFloors()
         {
 
-            IAsyncSession session = driver.AsyncSession();
+            using IAsyncSession session = driver.AsyncSession();
             List<Floor> floors = new List<Floor>();
             await session.ExecuteReadAsync(async tx =>
             {
@@ -42,7 +41,7 @@ RETURN collect(n.name) as floors";
         
         public async Task<List<Floor>> GetFloorByBuildingName(string name)
         {
-            IAsyncSession session = driver.AsyncSession();
+            using IAsyncSession session = driver.AsyncSession();
             List<Floor> floors = new List<Floor>();
             await session.ExecuteReadAsync(async tx =>
             {

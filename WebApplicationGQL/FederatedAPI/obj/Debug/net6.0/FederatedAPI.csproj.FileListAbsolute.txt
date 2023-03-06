@@ -114,3 +114,10 @@ C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\FederatedAPI\obj
 C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\FederatedAPI\obj\Debug\net6.0\FederatedAPI.pdb
 C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\FederatedAPI\obj\Debug\net6.0\FederatedAPI.genruntimeconfig.cache
 C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\FederatedAPI\obj\Debug\net6.0\ref\FederatedAPI.dll
+C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\FederatedAPI\bin\Debug\net6.0\HotChocolate.Diagnostics.dll
+C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\FederatedAPI\bin\Debug\net6.0\OpenTelemetry.dll
+C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\FederatedAPI\bin\Debug\net6.0\OpenTelemetry.Api.dll
+C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\FederatedAPI\bin\Debug\net6.0\OpenTelemetry.Exporter.Jaeger.dll
+C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\FederatedAPI\bin\Debug\net6.0\OpenTelemetry.Extensions.Hosting.dll
+C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\FederatedAPI\bin\Debug\net6.0\OpenTelemetry.Instrumentation.AspNetCore.dll
+C:\Users\melgohar\source\repos\goldbeck_light\WebApplicationGQL\FederatedAPI\bin\Debug\net6.0\OpenTelemetry.Instrumentation.Http.dll
