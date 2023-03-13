@@ -8,9 +8,11 @@ using OpenTelemetry.Trace;
 using GoldBeckLight.GraphQL.Queries;
 using Neo4j.Driver;
 using ServiceStack;
+using ApacheKafkaConsumerDemo;
+
 var builder = WebApplication.CreateBuilder(args);
 IDriver driver = GraphDatabase.Driver(
-              "neo4j+s://2725a56b.databases.neo4j.io",
+              "neo4j://localhost:7687",
               AuthTokens.Basic("neo4j", "rbAihX34NduwZaWL64EkKKwR_cYsf3UY5cMwJhqjidk"));
 
 builder.Services.AddCors(options =>
@@ -25,6 +27,7 @@ builder.Services.AddCors(options =>
 
 
 builder.Services.AddSingleton<IDriver>(driver)
+    .AddSingleton <IHostedService, ApacheKafkaConsumerService>()
     .AddScoped<IFloorRepository, FloorRepository>()
      .AddScoped<IRoomRepository, RoomRepository>()
      .AddScoped<IBuildingRepository, BuildingRepository>()

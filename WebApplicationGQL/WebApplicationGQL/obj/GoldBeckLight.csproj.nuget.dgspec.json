@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[12.0.1, )"
             },
+            "Confluent.Kafka": {
+              "target": "Package",
+              "version": "[2.0.2, )"
+            },
             "GraphQL.Server.Ui.Voyager": {
               "target": "Package",
               "version": "[7.2.0, )"
