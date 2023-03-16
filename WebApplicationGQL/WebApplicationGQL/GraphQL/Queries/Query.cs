@@ -3,7 +3,7 @@ using GoldBeckLight.Types;
 using Neo4j.Driver;
 using System;
 using System.Diagnostics;
-using WebApplicationGQL.Models;
+using GoldBeckLight.Models;
 using static HotChocolate.ErrorCodes;
 
 namespace GoldBeckLight.GraphQL.Queries
@@ -37,6 +37,13 @@ namespace GoldBeckLight.GraphQL.Queries
         [UseProjection]
         [UseFiltering]
         public async Task<IEnumerable<Room>> GetRooms([Service] IRoomRepository roomRepository)
+        {
+            return await roomRepository.GetRooms();
+        }
+
+        [UseProjection]
+        [UseFiltering]
+        public async Task<IEnumerable<Room>> GetLights([Service] IRoomRepository roomRepository)
         {
             return await roomRepository.GetRooms();
         }

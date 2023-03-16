@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using WebApplicationGQL.Models;
+using GoldBeckLight.Models;
 using ServiceStack;
 using Neo4j.Driver;
 namespace GoldBeckLight.Repositories

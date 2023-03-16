@@ -4,7 +4,7 @@ using Neo4j.Driver;
 using System.Diagnostics;
 using System.Drawing;
 using System.Threading;
-using WebApplicationGQL.Models;
+using GoldBeckLight.Models;
 
 namespace GoldBeckLight.Resolvers
 {
@@ -16,10 +16,7 @@ namespace GoldBeckLight.Resolvers
         public  Task<List<Floor>> GetFloorsAsync(
               [Parent] Building building, [Service] IFloorRepository floorRepository)
         {
-           
-
-            /*      var floorsByBuilding = await floorsByBuildingDataLoader.LoadAsync(building.Name,cancellationToken);
-                  return floorsByBuilding ?? new List<Floor>();*/
+            
             return  floorRepository.GetFloorByBuildingName(building.Name);
         }
 

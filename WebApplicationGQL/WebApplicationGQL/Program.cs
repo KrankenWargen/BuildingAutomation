@@ -1,14 +1,14 @@
-using GoldBeckLight.Resolvers;
-using GoldBeckLight.Types;
+
 using GoldBeckLight.Repositories;
 using System.Diagnostics;
-using WebApplicationGQL.Models;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 using GoldBeckLight.GraphQL.Queries;
 using Neo4j.Driver;
 using ServiceStack;
 using ApacheKafkaConsumerDemo;
+using GoldBeckLight.Repositories;
+using GoldBeckLight.Types;
 
 var builder = WebApplication.CreateBuilder(args);
 IDriver driver = GraphDatabase.Driver(
@@ -26,52 +26,31 @@ builder.Services.AddCors(options =>
 });
 
 
-builder.Services.AddSingleton<IDriver>(driver)
-    .AddSingleton <IHostedService, ApacheKafkaConsumerService>()
+
+builder.Services
+    .AddSingleton<IDriver>(driver)
+    /*.AddHostedService<ApacheKafkaConsumerService>()*/
+    .AddScoped<IBuildingRepository, BuildingRepository>()
     .AddScoped<IFloorRepository, FloorRepository>()
-     .AddScoped<IRoomRepository, RoomRepository>()
-     .AddScoped<IBuildingRepository, BuildingRepository>()
-     .AddGraphQLServer()
-      .AddDataLoader<RoomsByFloorDataLoader>()
-      .AddDataLoader<FloorsByBuildingDataLoader>()
+    .AddScoped<IRoomRepository, RoomRepository>()
+    .AddScoped<ILightRepository, LightRepository>()
+    .AddGraphQLServer()
     .AddType<BuildingType>()
-    .AddType<FloorResolver>()
-   .AddType<FloorType>()
-    .AddType<RoomResolver>()
+    .AddType<FloorType>()
     .AddType<RoomType>()
-      .AddQueryType(q => q.Name("Query"))
+    .AddQueryType(q => q.Name("Query"))
+    .AddMutationType(q => q.Name("Mutation"))
                         .AddType<GoldBeckLight.GraphQL.Queries.Query>()
-                        .AddType<QueryFloor>()
-                        .AddType<QueryRoom>()
+                        .AddType<GoldBeckLight.GraphQL.Mutations.Mutation>()
                         .AddFiltering()
-                        .AddProjections()
-                        .PublishSchemaDefinition(c => c
-                    .SetName("buildings")
-                      .IgnoreRootTypes().AddTypeExtensionsFromFile("./Stitching.graphql"));
-          /*              .AddInstrumentation();*/
+                        .AddProjections();
 
-/*builder.Logging.AddOpenTelemetry(
 
-    b =>
-    {
-        b.IncludeFormattedMessage = true;
-        b.IncludeScopes = true;
-        b.ParseStateValues = true;
-        b.SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("Demo"));
-    });
 
-builder.Services.AddOpenTelemetryTracing(
-
-    b =>
-    {
-        b.AddHttpClientInstrumentation();
-        b.AddAspNetCoreInstrumentation();
-        b.AddHotChocolateInstrumentation();
-        b.AddJaegerExporter();
-    }); */
 var app = builder.Build();
 app.UseCors("AllowAll");
 
 app.MapGraphQL("/graphql");
 
 app.Run();
+

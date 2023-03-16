@@ -1,8 +1,8 @@
 ﻿using GoldBeckLight.Repositories;
-using GoldBeckLight.Types;
+using GoldBeckLight.Models;
 using System;
 using System.Diagnostics;
-using WebApplicationGQL.Models;
+
 using static HotChocolate.ErrorCodes;
 
 namespace GoldBeckLight.GraphQL.Queries

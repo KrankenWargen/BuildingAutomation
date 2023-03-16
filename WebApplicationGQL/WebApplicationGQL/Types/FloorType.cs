@@ -1,6 +1,6 @@
 ﻿using GoldBeckLight.Resolvers;
 using HotChocolate.Types;
-using WebApplicationGQL.Models;
+using GoldBeckLight.Models;
 
 namespace GoldBeckLight.Types
 {
@@ -10,7 +10,7 @@ namespace GoldBeckLight.Types
         {
             descriptor.Field(_ => _.Name).IsProjected(true); 
             descriptor.Field(_ => _.Rooms)
-                .ResolveWith<RoomResolver>(_ => _.GetRoomsAsync(default,default,default));
+                .ResolveWith<RoomResolver>(_ => _.GetRoomsAsync(default,default));
 
         }
     }

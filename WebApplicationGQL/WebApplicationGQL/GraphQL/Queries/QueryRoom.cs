@@ -2,7 +2,7 @@
 using GoldBeckLight.Types;
 using System;
 using System.Diagnostics;
-using WebApplicationGQL.Models;
+using GoldBeckLight.Models;
 using static HotChocolate.ErrorCodes;
 
 namespace GoldBeckLight.GraphQL.Queries

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
-namespace WebApplicationGQL.Models
+namespace GoldBeckLight.Models
 {
 
     public class Building

@@ -1,7 +1,7 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
 
-namespace WebApplicationGQL.Models
+namespace GoldBeckLight.Models
 
 { 
     public class Room
@@ -9,7 +9,7 @@ namespace WebApplicationGQL.Models
 
         public string Name { get; set; }
 
-     
+        public List<Light> Lights { get; set; }
 
     }
 }

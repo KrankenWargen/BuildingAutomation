@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "WebApplicationGQL": {
+    "GoldBeckLight": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": false,

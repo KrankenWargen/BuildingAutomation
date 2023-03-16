@@ -1,5 +1,5 @@
 ﻿using Neo4j.Driver;
-using WebApplicationGQL.Models;
+using GoldBeckLight.Models;
 
 namespace GoldBeckLight.Repositories
 {

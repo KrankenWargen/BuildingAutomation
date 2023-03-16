@@ -1,6 +1,6 @@
 ﻿using GoldBeckLight.Repositories;
 using System.Diagnostics;
-using WebApplicationGQL.Models;
+using GoldBeckLight.Models;
 
 namespace GoldBeckLight.Resolvers
 {
@@ -9,16 +9,14 @@ namespace GoldBeckLight.Resolvers
     {
 
   
-        public async Task<List<Room>> GetRoomsAsync([Parent] Floor floor, [Service] RoomsByFloorDataLoader roomsByFloorDataLoader,CancellationToken cancellationToken)
+        public async Task<List<Room>> GetRoomsAsync([Parent] Floor floor, [Service] IRoomRepository roomRepository)
         {
 
-            var roomsByFloor = await roomsByFloorDataLoader.LoadAsync(floor.Name, cancellationToken);
-            return roomsByFloor ?? new List<Room>();
-           /* return await roomRepository.GetRoomsByFloorName(floor.Name);*/
+            return await roomRepository.GetRoomsByFloorName(floor.Name);
         }
 
 
-   
+
 
     }
 }

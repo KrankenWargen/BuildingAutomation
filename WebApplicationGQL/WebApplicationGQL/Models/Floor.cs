@@ -1,7 +1,7 @@
 ﻿using GoldBeckLight.Resolvers;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebApplicationGQL.Models
+namespace GoldBeckLight.Models
 
 {
    

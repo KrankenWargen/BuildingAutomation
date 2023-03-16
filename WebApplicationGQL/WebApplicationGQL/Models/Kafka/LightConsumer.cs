@@ -1,4 +1,4 @@
-﻿using WebApplicationGQL.Models;
+﻿using GoldBeckLight.Models;
 
 namespace GoldBeckLight.Models.Kafka
 {
@@ -6,7 +6,7 @@ namespace GoldBeckLight.Models.Kafka
     {
 
         public string Name { get; set; }
-
+        public bool IsOn { get; set; }
 
     }
 }
