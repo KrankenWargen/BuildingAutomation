@@ -1,19 +1,22 @@
-
+using GoldBeckLight.Resolvers;
+using GoldBeckLight.Types;
 using GoldBeckLight.Repositories;
 using System.Diagnostics;
-using OpenTelemetry.Resources;
-using OpenTelemetry.Trace;
+using GoldBeckLight.Models;
 using GoldBeckLight.GraphQL.Queries;
 using Neo4j.Driver;
 using ServiceStack;
 using ApacheKafkaConsumerDemo;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using GoldBeckLight.Repositories;
-using GoldBeckLight.Types;
+using Confluent.Kafka;
 
 var builder = WebApplication.CreateBuilder(args);
 IDriver driver = GraphDatabase.Driver(
-              "neo4j://localhost:7687",
+              "neo4j+s://2725a56b.databases.neo4j.io",
               AuthTokens.Basic("neo4j", "rbAihX34NduwZaWL64EkKKwR_cYsf3UY5cMwJhqjidk"));
+
 
 builder.Services.AddCors(options =>
 {
@@ -29,7 +32,19 @@ builder.Services.AddCors(options =>
 
 builder.Services
     .AddSingleton<IDriver>(driver)
-    /*.AddHostedService<ApacheKafkaConsumerService>()*/
+    .AddSingleton<IConsumer<Ignore, string>>(new ConsumerBuilder<Ignore, string>(new ConsumerConfig
+      {
+        BootstrapServers = "localhost:9092",
+        GroupId = "1",
+        AutoOffsetReset = AutoOffsetReset.Earliest
+    }).Build())
+        .AddSingleton<IProducer<Null, string>>(new ProducerBuilder<Null, string>(new ConsumerConfig
+        {
+            BootstrapServers = "localhost:9092",
+            GroupId = "1",
+            AutoOffsetReset = AutoOffsetReset.Earliest
+        }).Build())
+    .AddHostedService<ApacheKafkaConsumerService>()
     .AddScoped<IBuildingRepository, BuildingRepository>()
     .AddScoped<IFloorRepository, FloorRepository>()
     .AddScoped<IRoomRepository, RoomRepository>()
@@ -53,4 +68,3 @@ app.UseCors("AllowAll");
 app.MapGraphQL("/graphql");
 
 app.Run();
-

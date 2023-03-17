@@ -17,36 +17,56 @@ namespace GoldBeckLight.GraphQL.Mutations
     public class Mutation
     {
 
-        public readonly ConsumerConfig _config = new ConsumerConfig
+        /*   public readonly ConsumerConfig _config = new ConsumerConfig
+           {
+
+               BootstrapServers = "localhost:9092",
+               GroupId = "1",
+               AutoOffsetReset = AutoOffsetReset.Earliest
+           };*/
+
+        private readonly IConsumer<Ignore, string> consumerBuilder;
+        private readonly IProducer<Null, string> producerBuilder;
+        public Mutation(IConsumer<Ignore, string> consumerBuilder, IProducer<Null, string> producerBuilder)
         {
-
-            BootstrapServers = "localhost:9092",
-            GroupId = "1",
-            AutoOffsetReset = AutoOffsetReset.Earliest
-        };
-
-
+            Debug.WriteLine("22222");
+            this.consumerBuilder = consumerBuilder;
+            this.producerBuilder = producerBuilder;
+        }
         public async Task<UpdateLightPayload> updateLight(UpdateLightInput input, [Service] ILightRepository lightRepository)
         {
-           
-           /* var consumer = new ConsumerBuilder<Ignore, string>(_config).Build();
-            consumer.Subscribe("quickstart");
-            var result = consumer.Consume(TimeSpan.FromSeconds(60));
+
+            Debug.WriteLine("44444");
+            var message = new Message<Null, string>
+            {
+                Value = $@"{{'Name':'{input.Name}','IsOn': {input.IsOn} }}"
+            };
+
+
+            var deliveryResult = producerBuilder.ProduceAsync("quickstart", message).GetAwaiter().GetResult();
+            Debug.WriteLine(deliveryResult.Value);
+
+            consumerBuilder.Subscribe("quickstart");
+            var result = consumerBuilder.Consume(TimeSpan.FromSeconds(20));
             if (result == null)
             {
                 throw new Exception("Timed out waiting for confirmation message.");
             }
-         
-            var lightConsumer = JsonSerializer.Deserialize<LightConsumer>(result.Message.Value);
-            Debug.WriteLine($"Light name: {lightConsumer.Name}");*/
+            Debug.WriteLine(result.Message.Value.Replace("'", "\""));
+            var lightConsumer = JsonSerializer.Deserialize<LightConsumer>(result.Message.Value.Replace("'", "\"").Replace("False", "false").Replace("True", "true"));
+            Debug.WriteLine($"Light name2: {lightConsumer.Name}");
 
             Light light = new Light
             {
-                Name = input.Name,
-                IsOn = input.IsOn
+                Name = lightConsumer.Name,
+                IsOn = lightConsumer.IsOn
             };
             Light updatedLight = await lightRepository.updateLight(light);
             return new UpdateLightPayload(updatedLight);
+
+
+
+
         }
 
     }

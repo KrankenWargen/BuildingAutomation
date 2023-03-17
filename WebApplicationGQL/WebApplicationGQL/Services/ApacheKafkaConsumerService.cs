@@ -17,18 +17,19 @@ namespace ApacheKafkaConsumerDemo
         private readonly string topic = "quickstart";
         private readonly string groupId = "1";
         private readonly string bootstrapServers = "localhost:9092";
-        private IConsumer<Ignore, string> consumerBuilder;
+
+        private readonly IConsumer<Ignore, string> consumerBuilder;
+
+        public ApacheKafkaConsumerService(IConsumer<Ignore, string> consumerBuilder)
+        {
+            Debug.WriteLine("000000");
+            this.consumerBuilder = consumerBuilder;
+        }
         public Task StartAsync(CancellationToken cancellationToken)
         {
             Debug.WriteLine("11111111111");
 
-            var config = new ConsumerConfig
-            {
-                GroupId = groupId,
-                BootstrapServers = bootstrapServers,
-                AutoOffsetReset = AutoOffsetReset.Earliest,
-            };
-            consumerBuilder = new ConsumerBuilder<Ignore, string>(config).Build();
+           
 
             consumerBuilder.Subscribe(topic);
             Task.Run(() =>
@@ -38,8 +39,8 @@ namespace ApacheKafkaConsumerDemo
                     while (!cancellationToken.IsCancellationRequested)
                     {
                         var consumer = consumerBuilder.Consume(cancellationToken);
-                        var lightConsumer = JsonSerializer.Deserialize<LightConsumer>(consumer.Message.Value);
-                        Debug.WriteLine($"Light name: {lightConsumer.Name}");
+                        var lightConsumer = JsonSerializer.Deserialize<LightConsumer>(consumer.Message.Value.Replace("'", "\"").Replace("False", "false").Replace("True", "true"));
+                        Debug.WriteLine($"Light name: {lightConsumer.Name} IsOn: {lightConsumer.IsOn}");
                     }
                 }
                 catch (Exception ex)
